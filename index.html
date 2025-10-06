@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catalog — Nested Documents Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>ShopNest</h1>
+    <div class="search-wrap">
+      <input id="searchInput" placeholder="Search products, brands, tags..." />
+      <select id="sortSelect">
+        <option value="relevance">Sort: Relevance</option>
+        <option value="price_asc">Price ↑</option>
+        <option value="price_desc">Price ↓</option>
+        <option value="rating_desc">Rating ↓</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <section class="panel">
+        <h3>Categories</h3>
+        <ul id="categoryTree" class="category-tree"></ul>
+        <button id="clearCategory">Clear Category</button>
+      </section>
+
+      <section class="panel">
+        <h3>Filters</h3>
+        <label>Brand
+          <select id="brandFilter">
+            <option value="">Any</option>
+          </select>
+        </label>
+        <label>Tag
+          <select id="tagFilter">
+            <option value="">Any</option>
+          </select>
+        </label>
+
+        <label>Price min
+          <input id="priceMin" type="number" min="0" placeholder="0" />
+        </label>
+        <label>Price max
+          <input id="priceMax" type="number" min="0" placeholder="99999" />
+        </label>
+        <button id="applyFilters">Apply</button>
+        <button id="clearFilters">Clear</button>
+      </section>
+
+      <section class="panel">
+        <h3>Facets</h3>
+        <div id="facetBrands"></div>
+        <div id="facetTags"></div>
+      </section>
+    </aside>
+
+    <section class="catalog">
+      <div id="resultsInfo"></div>
+      <div id="productGrid" class="grid"></div>
+      <div id="emptyState" class="empty" hidden>No products found.</div>
+    </section>
+  </main>
+
+  <!-- Product detail modal -->
+  <div id="productModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close" id="closeModal">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <small>Demo catalog — nested document structure (variants, inventory, reviews).</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
